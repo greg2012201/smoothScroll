@@ -1,0 +1,18 @@
+.page {
+
+    z-index: -1000;
+
+
+
+    &--resize-animation-stopper {
+
+        .header,
+        .about *,
+        .offer * {
+            transition: none !important;
+            animation: none !important;
+        }
+
+
+    }
+}
