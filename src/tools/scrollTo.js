@@ -9,7 +9,8 @@ export const smoothScrollTo = (targetPosition, duration, smoothScrollContainer) 
         const timeElapsed = currentTime - startTime;
         const run = ease(timeElapsed, startPosition, distance, duration);
 
-        smoothScrollContainer.style.transform = `translate(${-run}px)`;
+        smoothScrollContainer.style.transform = `translateY(${-run}px)`;
+
         if (timeElapsed < duration) requestAnimationFrame(animation);
 
     }
