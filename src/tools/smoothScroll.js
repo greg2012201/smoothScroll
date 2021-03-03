@@ -1,7 +1,8 @@
 const smoothScrollContainer = document.querySelector('.smooth-scroll-container');
-let scroll = window.scrollY || window.pageYOffset;
 const containerStyles = smoothScrollContainer.style;
-export const smoothScrollInit = () => {
+let scroll = window.scrollY || window.pageYOffset;
+
+export const smoothScrollContainerInit = () => {
 
 
 
@@ -10,6 +11,8 @@ export const smoothScrollInit = () => {
 
 
     setContainersProperties();
+
+
 }
 
 const setContainersProperties = () => {
@@ -18,12 +21,16 @@ const setContainersProperties = () => {
     setParentContainerStyle();
 
 
+
+
+}
+
+export const setScrollAnimationProperties = (time, timingFunction) => {
+
     setTimeout(() => {
-        smoothScrollContainer.style.transition = 'transform 0.4s linear';
 
-    }, 1000);
-
-
+        smoothScrollContainer.style.transition = `transform ${time} ${timingFunction}`;
+    });
 }
 const setMainContainerStyle = () => {
 
@@ -42,7 +49,7 @@ const setParentContainerStyle = () => {
     smoothScrollContainer.parentElement.style.height = containerStyles.height;
 
 }
-const setScrollPosition = () => {
+export const setScrollPosition = () => {
     scroll = window.scrollY || window.pageYOffset;
 }
 const moveOnScroll = () => {
