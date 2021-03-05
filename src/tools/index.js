@@ -3,8 +3,8 @@ import {
     smoothScrollContainerInit,
 
 } from './smoothScroll';
-const time = '200ms';
-const timingFunction = 'linear'
+const time = '1000ms';
+const timingFunction = 'cubic-bezier(0.23, 1, 0.32, 1)';
 
 addEventListener('DOMContentLoaded', () => {
     smoothScrollContainerInit();
@@ -12,8 +12,11 @@ addEventListener('DOMContentLoaded', () => {
 });
 
 addEventListener('wheel', () => {
+    console.log('wywołanie wheel');
     setScrollAnimationProperties(time, timingFunction)
 });
-addEventListener('scroll', () => {
+addEventListener('touchmove', () => {
+
+    console.log('wywołanie touch');
     setScrollAnimationProperties(time, timingFunction)
 });

@@ -1,9 +1,7 @@
 /* MENU */
 
 import {
-
-    setScrollAnimationProperties,
-    smoothScrollRun,
+    smoothScrollTo,
 } from '../tools/smoothScroll';
 const sections = [...document.querySelectorAll('.section')];
 const burger = document.querySelector('.burger');
@@ -108,11 +106,8 @@ const getDestination = (link) => {
 }
 
 navBtns.forEach(btn => btn.addEventListener('click', function (e) {
-    const targetPosition = getDestination(this);
     e.preventDefault();
-    setScrollAnimationProperties('2000ms', 'ease-out')
-    scrollTo(0, targetPosition)
-
-
+    const targetPosition = getDestination(this);
+    smoothScrollTo(targetPosition, '1000ms', 'ease-out');
 
 }));
