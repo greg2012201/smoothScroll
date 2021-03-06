@@ -10,8 +10,6 @@ export const smoothScrollInit = (time, timingFunction) => {
     if (isValid) {
         smoothScrollContainerInit(time, timingFunction);
         initListiners(time, timingFunction);
-        setScrollAnimationProperties(time, timingFunction)
-
     }
 }
 export const smoothScrollTo = (target, time, timingFunction) => {
@@ -76,7 +74,7 @@ const setMainContainerStyle = () => {
     containerStyles.width = '100%';
     containerStyles.overflow = 'hidden';
     containerStyles.transform = `translateY(${-scrollY}px)`
-    scrollTo(0, 0);
+
 
 }
 const setParentContainerStyle = () => {
