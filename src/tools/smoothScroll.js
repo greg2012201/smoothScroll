@@ -49,7 +49,7 @@ const initListiners = (time, timingFunction) => {
 const smoothScrollContainerInit = () => {
     document.addEventListener('scroll', () => {
         setScrollPosition();
-        goOutside();
+
 
 
     });
@@ -58,12 +58,15 @@ const smoothScrollContainerInit = () => {
 }
 
 const setContainersProperties = () => {
+
     setMainContainerStyle();
     setParentContainerStyle();
 }
 
 const setScrollAnimationProperties = (time, timingFunction) => {
+
     smoothScrollContainer.style.transition = `transform ${time} ${timingFunction}`;
+
 
 }
 const setMainContainerStyle = () => {
@@ -72,12 +75,14 @@ const setMainContainerStyle = () => {
     containerStyles.top = '0';
     containerStyles.width = '100%';
     containerStyles.overflow = 'hidden';
-    containerStyles.transform = `translateY(${-scrollY}px)`;
+    containerStyles.transform = `translateY(${-scrollY}px)`
+    scrollTo(0, 0);
+
 }
 const setParentContainerStyle = () => {
 
-    console.log(containerStyles.height);
-    parentContainer.style.height = containerStyles.height
+    const smoothContainerHeight = parseInt(getComputedStyle(smoothScrollContainer).height, 10)
+    parentContainer.style.height = `${smoothContainerHeight}px`
 }
 const setScrollPosition = () => {
     scroll = window.scrollY || window.pageYOffset;
