@@ -1,8 +1,8 @@
 const smoothScrollContainer = document.querySelector('.smooth-scroll-container');
+const parentContainer = smoothScrollContainer.parentElement;
 const containerStyles = smoothScrollContainer.style;
 let scroll = window.scrollY || window.pageYOffset;
 let isValid = false;
-
 
 export const smoothScrollInit = (time, timingFunction) => {
     paramsValid(time, timingFunction);
@@ -10,13 +10,19 @@ export const smoothScrollInit = (time, timingFunction) => {
     if (isValid) {
         smoothScrollContainerInit(time, timingFunction);
         initListiners(time, timingFunction);
+        setScrollAnimationProperties(time, timingFunction)
 
     }
 }
 export const smoothScrollTo = (target, time, timingFunction) => {
+
+
     paramsValid(time, timingFunction);
     containerStyles.transform = `translateY(${-target}px)`;
-    scrollTo(0, target);
+    setTimeout(() => {
+        scrollTo(0, target);
+    }, 2)
+
     setScrollAnimationProperties(time, timingFunction);
 }
 const paramsValid = (time, timingFunction) => {
@@ -31,17 +37,20 @@ const paramsValid = (time, timingFunction) => {
 }
 const initListiners = (time, timingFunction) => {
     addEventListener('wheel', () => {
+        setScrollAnimationProperties(time, timingFunction);
 
-        setScrollAnimationProperties(time, timingFunction)
     });
     addEventListener('touchmove', () => {
         setScrollAnimationProperties(time, timingFunction)
     });
+
 }
 
 const smoothScrollContainerInit = () => {
     document.addEventListener('scroll', () => {
         setScrollPosition();
+        goOutside();
+
 
     });
     moveOnScroll();
@@ -66,7 +75,9 @@ const setMainContainerStyle = () => {
     containerStyles.transform = `translateY(${-scrollY}px)`;
 }
 const setParentContainerStyle = () => {
-    smoothScrollContainer.parentElement.style.height = containerStyles.height;
+
+    console.log(containerStyles.height);
+    parentContainer.style.height = containerStyles.height
 }
 const setScrollPosition = () => {
     scroll = window.scrollY || window.pageYOffset;
