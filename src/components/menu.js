@@ -2,7 +2,7 @@
 
 import {
     smoothScrollTo,
-} from '../tools/smoothScroll';
+} from '../smoothScroll/smoothScroll';
 const sections = [...document.querySelectorAll('.section')];
 const burger = document.querySelector('.burger');
 const dropDownMenu = document.querySelector('.menu');
@@ -100,7 +100,6 @@ document.addEventListener('mousemove', mouseOver)
 const getDestination = (link) => {
 
     const destination = link.dataset.destination;
-    console.log(destination);
     return document.querySelector(`.${destination}`).offsetTop;
 
 }

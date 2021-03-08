@@ -1,3 +1,3 @@
 import './sass/index.scss';
-import './tools/index';
+import './smoothScroll/index';
 import './components/menu';

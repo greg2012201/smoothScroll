@@ -10,6 +10,7 @@ export const smoothScrollInit = (time, timingFunction) => {
     if (isValid) {
         smoothScrollContainerInit(time, timingFunction);
         initListiners(time, timingFunction);
+        moveOnScroll();
     }
 }
 export const smoothScrollTo = (target, time, timingFunction) => {
@@ -41,21 +42,14 @@ const initListiners = (time, timingFunction) => {
     addEventListener('touchmove', () => {
         setScrollAnimationProperties(time, timingFunction)
     });
+    document.addEventListener('scroll', () => {
+        setScrollPosition();
+
+    });
 
 }
 
 const smoothScrollContainerInit = () => {
-    document.addEventListener('scroll', () => {
-        setScrollPosition();
-
-
-
-    });
-    moveOnScroll();
-    setContainersProperties();
-}
-
-const setContainersProperties = () => {
 
     setMainContainerStyle();
     setParentContainerStyle();

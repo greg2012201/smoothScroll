@@ -6,7 +6,7 @@
     height: $menu-height;
     top: - $menu-height + $nav-bar-heigth;
     left: 0;
-
+    z-index: 1000;
 
     display: flex;
     justify-content: end;
