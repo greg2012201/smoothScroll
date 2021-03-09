@@ -53,6 +53,7 @@ const smoothScrollContainerInit = () => {
 
     setMainContainerStyle();
     setParentContainerStyle();
+
 }
 
 const setScrollAnimationProperties = (time, timingFunction) => {
@@ -74,7 +75,8 @@ const setMainContainerStyle = () => {
 const setParentContainerStyle = () => {
 
     const smoothContainerHeight = parseInt(getComputedStyle(smoothScrollContainer).height, 10)
-    parentContainer.style.height = `${smoothContainerHeight}px`
+    parentContainer.style.height = `${smoothContainerHeight}px`;
+    requestAnimationFrame(setParentContainerStyle);
 }
 const setScrollPosition = () => {
     scroll = window.scrollY || window.pageYOffset;
