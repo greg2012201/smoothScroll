@@ -4,7 +4,7 @@ const containerStyles = smoothScrollContainer.style;
 let scroll = window.scrollY || window.pageYOffset;
 let isValid = false;
 
-export const smoothScrollInit = (time, timingFunction) => {
+const smoothScrollInit = (time, timingFunction) => {
     paramsValid(time, timingFunction);
 
     if (isValid) {
@@ -13,7 +13,7 @@ export const smoothScrollInit = (time, timingFunction) => {
         moveOnScroll();
     }
 }
-export const smoothScrollTo = (target, time, timingFunction) => {
+const smoothScrollTo = (target, time, timingFunction) => {
 
 
     paramsValid(time, timingFunction);
@@ -24,6 +24,7 @@ export const smoothScrollTo = (target, time, timingFunction) => {
 
     setScrollAnimationProperties(time, timingFunction);
 }
+
 const paramsValid = (time, timingFunction) => {
 
     const valid = typeof (time) === 'string' && typeof (timingFunction) === 'string';
@@ -35,11 +36,11 @@ const paramsValid = (time, timingFunction) => {
 
 }
 const initListiners = (time, timingFunction) => {
-    addEventListener('wheel', () => {
+    document.addEventListener('wheel', () => {
         setScrollAnimationProperties(time, timingFunction);
 
     });
-    addEventListener('touchmove', () => {
+    document.addEventListener('touchmove', () => {
         setScrollAnimationProperties(time, timingFunction)
     });
     document.addEventListener('scroll', () => {
@@ -53,7 +54,6 @@ const smoothScrollContainerInit = () => {
 
     setMainContainerStyle();
     setParentContainerStyle();
-
 }
 
 const setScrollAnimationProperties = (time, timingFunction) => {
@@ -75,7 +75,7 @@ const setMainContainerStyle = () => {
 const setParentContainerStyle = () => {
 
     const smoothContainerHeight = parseInt(getComputedStyle(smoothScrollContainer).height, 10)
-    parentContainer.style.height = `${smoothContainerHeight}px`;
+    parentContainer.style.height = `${smoothContainerHeight}px`
     requestAnimationFrame(setParentContainerStyle);
 }
 const setScrollPosition = () => {
@@ -86,3 +86,8 @@ const moveOnScroll = () => {
     containerStyles.transform = `translateY(${-scroll}px)`;
     requestAnimationFrame(moveOnScroll);
 }
+
+module.exports = {
+    smoothScrollInit,
+    smoothScrollTo
+};
