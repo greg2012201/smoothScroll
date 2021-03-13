@@ -1,19 +1,16 @@
-# FRONEND BOILERPLATE
-----------------------------
+# SmooothScroll
+---
 
-## SETUP
+## Description
 
- * Clone repo - ```git clone https://github.com/greg2012201/frontend-boilerplate.git``` 
- * Install all dependencies - ```npm install```
- * Start the server - ```npm start```
- * Server will run automaticly in the browser on ```localhost:8080```
+This aplication helps you scroll trough your site more smoothly. *SmoothScroll* is fully costumizable and its code is reusable. If you want, you can set the duration and timing function for any kind of device.
+___
 
-_______________________________________________________________
-## AVALIBLE SCRIPTS
+### Installation
 
-* ```npm run dev``` -  run development build 
-* ```npm run prod``` - run production build
-* ```npm start``` - run development server
+This package must be install on the production dependency.
+It can be installed with the npm script: 
+```npm i smooth-desktop-mobile-scroll```
 
 
 
